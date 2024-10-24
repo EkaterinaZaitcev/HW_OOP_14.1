@@ -7,12 +7,12 @@ class Category:
     description: str
     product: List
     category_count = 0
-    product_count = 0
+    products_count = 0
 
     def __init__(self, name, description, product):
         """Метод для инициализации категории"""
         Category.category_count += 1
-        Category.product_count = len(product)
+        Category.products_count = len(product)
         self.name = name
         self.description = description
         self.product = product
@@ -25,5 +25,5 @@ class Category:
 """if __name__ == "__main__":
     category_1 = Category("Телевизоры",
                          "Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом и помощником",
-                         "[product_1]")
+                         "[product1]")
     print(category_1)"""
