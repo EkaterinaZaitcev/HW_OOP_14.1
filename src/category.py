@@ -9,7 +9,6 @@ class Category:
     category_count = 0
     product_count = 0
 
-
     def __init__(self, name, description, products):
         """Метод для инициализации категории"""
         Category.category_count += 1
@@ -18,9 +17,13 @@ class Category:
         self.description = description
         self.products = products
 
-
     def add_category(self):
         """Добавление категорий"""
         return f"Category(name={self.name}," f"description={self.description}," f"products={self.products})"
 
 
+"""if __name__ == "__main__":
+    category_1 = Category("Телевизоры",
+                         "Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом и помощником",
+                         "[product4]")
+    print(category_1)"""
