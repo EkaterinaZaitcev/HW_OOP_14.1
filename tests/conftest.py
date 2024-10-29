@@ -84,4 +84,4 @@ def product_dict():
 
 @pytest.fixture
 def new_price():
-    return -1000
+    return -100.0

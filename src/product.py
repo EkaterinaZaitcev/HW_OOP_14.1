@@ -29,11 +29,11 @@ class Product:
         return self.__price
 
     @price.setter
-    def price(self, price):
-        if price <= 0:
+    def price(self, new_price: float):
+        if new_price <= 0:
             print("Цена не должна быть нулевая или отрицательная")
             return
-        if self.__price > price:
+        if self.__price > new_price:
             user_input = input("Изменять цену? Введите y если да,и n если нет")
             if user_input != "y":
                 return

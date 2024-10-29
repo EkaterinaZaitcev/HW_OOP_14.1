@@ -26,10 +26,10 @@ class Category:
         return f"Category(name={self.name}," f"description={self.description}," f"products={self.products})"
 
 
-    def add_product(self) -> Any:
+    def add_product(self, product: Product) -> Any:
         """Добавление продукта"""
-        self.__products.append(Product)
-        Category.product_count +=1
+        self.__products.append(product)
+        Category.product_count += 1
 
 
     @property
