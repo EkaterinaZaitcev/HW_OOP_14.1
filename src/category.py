@@ -1,7 +1,5 @@
 from typing import List, Any
 
-import self
-
 from src.product import Product
 
 
@@ -9,39 +7,33 @@ class Category:
     """Класс для создания категории"""
     name: str
     description: str
-    product: List
+    products: List
     category_count = 0
-    products_count = 0
+    product_count = 0
 
-    def __init__(self, name, description, product):
+    def __init__(self, name, description, products):
         """Метод для инициализации категории"""
         self.name = name
         self.description = description
-        self.__product = product
+        self.__products = products
         Category.category_count += 1
-        Category.products_count = len(product)
+        Category.product_count = len(products)
 
 
     def category(self):
         """Добавление категорий"""
-        return f"Category(name={self.name}," f"description={self.description}," f"product={self.product})"
+        return f"Category(name={self.name}," f"description={self.description}," f"product={self.products})"
 
 
-    def add_product(self, product: Product) -> Any:
+    def add_product(self) -> Any:
         """Добавление продукта"""
-        self.__product.append(Product)
-        Category.product +=1
+        self.__products.append(Product)
+        Category.products +=1
 
     @property
     def get_product_list(self) -> str:
         """Вывод списка продуктов"""
         product_list = ""
-        for product in self.__product:
+        for product in self.__products:
             product_list += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
         return product_list
-
-"""if __name__ == "__main__":
-    category_1 = Category("Телевизоры",
-                         "Современный телевизор, который позволяет наслаждаться просмотром, станет вашим другом и помощником",
-                         "[product1]")
-    print(category_1)"""

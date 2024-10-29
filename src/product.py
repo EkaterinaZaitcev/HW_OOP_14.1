@@ -1,4 +1,4 @@
-
+from typing import Dict
 
 class Product:
     """Класс для добавления продукта"""
@@ -14,18 +14,24 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
-
-    def product(self):
+    @classmethod
+    def new_product(cls, new_product: Dict):
         """Добавление продукта"""
-        return (
-            f"Product(name={self.name},"
-            f"description={self.description},"
-            f"price={self.price},"
-            f"quantity={self.quantity})"
-        )
+        name = new_product["name"]
+        description = new_product["decription"]
+        price = new_product["price"]
+        quantity = new_product["quantity"]
+        return cls(name, description, price, quantity)
 
 
-if __name__ == "__main__":
-    product_1 = Product("Салат", "Салат с помидорами", 310.0, 14)
-    print(product_1)
+    @property
+    def price(self):
+        return self.__price
 
+
+    @price.setter
+    def price(self, value):
+        if value <= 0:
+            print("Цена не должна быть нулевая или отрицательная")
+        else:
+            self.__price = value
