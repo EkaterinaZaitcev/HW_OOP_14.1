@@ -1,4 +1,4 @@
-from typing import List, Any
+from typing import Any
 
 from src.product import Product
 
@@ -18,15 +18,15 @@ class Category:
         self.__products = products
         Category.category_count += 1
         Category.product_count += len(products)
-        print(Category.product_count)
+        #print(Category.product_count)
 
 
     def category(self):
         """Добавление категорий"""
-        return f"Category(name={self.name}," f"description={self.description}," f"product={self.products})"
+        return f"Category(name={self.name}," f"description={self.description}," f"products={self.products})"
 
 
-    def add_product(self, product: Product) -> Any:
+    def add_product(self) -> Any:
         """Добавление продукта"""
         self.__products.append(Product)
         Category.product_count +=1

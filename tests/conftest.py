@@ -81,3 +81,7 @@ def product_dict():
         "price": 144.75,
         "quantity": 21,
     }
+
+@pytest.fixture
+def new_price():
+    return -1000

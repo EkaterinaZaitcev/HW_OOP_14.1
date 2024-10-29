@@ -30,5 +30,5 @@ def create_object_from_json(data: dict) -> Any:
         return categories
 
 
-result_2 = create_object_from_json(result)
-print(result_2)
+"""result_2 = create_object_from_json(result)
+print(result_2)"""
