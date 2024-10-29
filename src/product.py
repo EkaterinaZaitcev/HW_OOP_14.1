@@ -11,8 +11,9 @@ class Product:
         """Метод для инициализации продукта"""
         self.name = name
         self.description = description
-        self.price = price
+        self.__price = price
         self.quantity = quantity
+
 
     def product(self):
         """Добавление продукта"""

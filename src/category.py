@@ -1,4 +1,8 @@
-from typing import List
+from typing import List, Any
+
+import self
+
+from src.product import Product
 
 
 class Category:
@@ -11,16 +15,30 @@ class Category:
 
     def __init__(self, name, description, product):
         """Метод для инициализации категории"""
-        Category.category_count += 1
-        Category.products_count = len(product)
         self.name = name
         self.description = description
-        self.product = product
+        self.__product = product
+        Category.category_count += 1
+        Category.products_count = len(product)
+
 
     def category(self):
         """Добавление категорий"""
         return f"Category(name={self.name}," f"description={self.description}," f"product={self.product})"
 
+
+    def add_product(self, product: Product) -> Any:
+        """Добавление продукта"""
+        self.__product.append(Product)
+        Category.product +=1
+
+    @property
+    def get_product_list(self) -> str:
+        """Вывод списка продуктов"""
+        product_list = ""
+        for product in self.__product:
+            product_list += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
+        return product_list
 
 """if __name__ == "__main__":
     category_1 = Category("Телевизоры",
