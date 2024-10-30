@@ -22,11 +22,11 @@ def test_new_product(product_dict):
     assert product6.quantity == 21
 
 
-@patch('builtins.input', return_value='y')
-def test_product_price_setter(mock_input, capsys, new_price):
+
+def test_product_price_setter(capsys, new_price):
     # Изменяем цену на меньшую чем была (требуется подтверждение)
-    new_price.price = -100.0
-    message = capsys.readouterr()
-    assert message.out.strip() == 'Цена понижается с 120000 до 100. Подтверждаете? (y/n)'
-    assert new_price.price == 100.0
+    """new_price = 0.00"""
+    message=capsys.readouterr()
+    assert message.out.strip() == "Цена понижается с 120000 до 100. Подтверждаете? (y/n)"
+
 

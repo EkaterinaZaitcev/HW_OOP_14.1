@@ -84,4 +84,8 @@ def product_dict():
 
 @pytest.fixture
 def new_price():
-    return -100.0
+        return Product(
+        "Xiaomi Redmi Note 11",
+        "1024GB, Синий",
+        0.0,
+        11)
