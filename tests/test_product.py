@@ -22,11 +22,13 @@ def test_new_product(product_dict):
     assert product6.quantity == 21
 
 
-
 def test_product_price_setter(capsys, new_price):
-    # Изменяем цену на меньшую чем была (требуется подтверждение)
-    """new_price = 0.00"""
-    message=capsys.readouterr()
-    assert message.out.strip() == "Цена понижается с 120000 до 100. Подтверждаете? (y/n)"
+    new_price.price = -2
+    message = capsys.readouterr()
+    assert message.out.strip() == "Цена не должна быть нулевая или отрицательная"
 
 
+@patch('builtins.input', return_value='y')
+def test_product_price_setter_lower(new_price):
+    new_price.price = 5
+    assert new_price.price == 5

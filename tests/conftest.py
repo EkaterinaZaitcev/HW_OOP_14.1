@@ -87,5 +87,5 @@ def new_price():
         return Product(
         "Xiaomi Redmi Note 11",
         "1024GB, Синий",
-        0.0,
+        100.0,
         11)
