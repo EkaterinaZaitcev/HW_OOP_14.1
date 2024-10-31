@@ -24,3 +24,9 @@ def test_get_product_list(category1, category2):
             category2.get_product_list == "product3, 400.0 руб. Остаток: 5 шт.\nproduct4, 560.0 руб. Остаток: 14 шт."
                                           "\nproduct5, 570.0 руб. Остаток: 13 шт."
         )
+
+
+def test_category_str(category1):
+    assert str(category1) == "Смартфоны, количество продуктов: 19 шт."
+
+

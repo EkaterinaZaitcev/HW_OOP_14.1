@@ -32,3 +32,11 @@ def test_product_price_setter(capsys, new_price):
 def test_product_price_setter_lower(new_price):
     new_price.price = 5
     assert new_price.price == 5
+
+
+def test_product_str(product1):
+    assert str(product1) == "Iphone 15, 310.0 руб. Остаток: 14 шт."
+
+
+def test_product_add(product1, product2):
+    assert product1 + product2 == 8190.0
