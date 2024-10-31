@@ -1,6 +1,7 @@
 import pytest
 
 from src.category import Category
+from src.category_iterator import CategoryIterator
 from src.product import Product
 
 
@@ -90,3 +91,6 @@ def new_price():
         100.0,
         11)
 
+@pytest.fixture
+def category_iterator(category1):
+    return CategoryIterator(category1)

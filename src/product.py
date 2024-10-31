@@ -1,5 +1,6 @@
 from typing import Dict
 
+
 class Product:
     """Класс для добавления продукта"""
     name: str
@@ -18,13 +19,11 @@ class Product:
         """Магический метод который возвращает строку"""
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
 
-
     def __add__(self, other):
         """Метод сложения"""
         if type(other) is Product:
             return self.__price * self.quantity + other.price * other.quantity
         raise TypeError
-
 
     @classmethod
     def new_product(cls, new_product: Dict):
@@ -34,7 +33,6 @@ class Product:
         price = new_product["price"]
         quantity = new_product["quantity"]
         return cls(name, description, price, quantity)
-
 
     @property
     def price(self):

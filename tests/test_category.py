@@ -30,3 +30,11 @@ def test_category_str(category1):
     assert str(category1) == "Смартфоны, количество продуктов: 19 шт."
 
 
+def test_category_iterator(category_iterator):
+    iter(category_iterator)
+    assert category_iterator.index == 0
+    assert next(category_iterator).name == 'Samsung Galaxy S23 Ultra'
+    assert next(category_iterator).name == 'Iphone 15'
+
+    with pytest.raises(StopIteration):
+        next(category_iterator)
