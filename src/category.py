@@ -1,3 +1,4 @@
+from itertools import product
 from typing import Any
 
 from src.product import Product
@@ -19,6 +20,13 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products)
         #print(Category.product_count)
+
+    def __str__(self):
+        """Магический метод для строкового отображения"""
+        product_in_list = 0
+        for product in self.__products:
+            product_in_list += product.quantity
+        return f"{self.name}, количество продуктов: {product_in_list} шт."
 
 
     def category(self):
