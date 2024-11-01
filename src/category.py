@@ -36,9 +36,13 @@ class Category:
         Category.product_count += 1
 
     @property
+    def list_prod(self):
+        return self.__products
+
+    @property
     def get_product_list(self) -> str:
         """Вывод списка продуктов"""
-        product_list = ""
+        product_list = ''
         for product in self.__products:
             product_list += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
-        return product_list
+        return f"{product_list}"

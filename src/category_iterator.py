@@ -10,14 +10,13 @@ class CategoryIterator:
         self.index = 0
 
     def __iter__(self):
-        self.index = 0
         return self
 
     def __next__(self):
-        if self.index < len(self.category.get_product_list):
-            product = self.category.get_product_list[self.index]
+        if self.index < len(self.category.list_prod):
+            product_obj = self.category.list_prod[self.index]
             self.index += 1
-            return product
+            return product_obj
         else:
             raise StopIteration
 
@@ -27,9 +26,9 @@ if __name__ == '__main__':
     product2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
     product3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
 
-    print(str(product1))
+    """print(str(product1))
     print(str(product2))
-    print(str(product3))
+    print(str(product3))"""
 
     category1 = Category(
         "Смартфоны",
@@ -37,6 +36,5 @@ if __name__ == '__main__':
         [product1, product2, product3])
 
     iterator = CategoryIterator(category1)
-
     for product in iterator:
         print(product)
