@@ -21,7 +21,7 @@ class Product:
 
     def __add__(self, other):
         """Метод сложения"""
-        if type(self) == type(other):
+        if isinstance(other, self.__class__):
             return self.__price * self.quantity + other.__price * other.quantity
         raise TypeError
 

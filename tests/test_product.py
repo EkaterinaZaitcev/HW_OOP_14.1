@@ -1,5 +1,6 @@
-from src.product import Product
 from unittest.mock import patch
+
+from src.product import Product
 
 
 def test_products(product1, product2):
@@ -15,7 +16,7 @@ def test_products(product1, product2):
 
 
 def test_new_product(product_dict):
-    product6=Product.new_product(product_dict)
+    product6 = Product.new_product(product_dict)
     assert product6.name == "Product6"
     assert product6.description == "Description of the product6"
     assert product6.price == 144.75

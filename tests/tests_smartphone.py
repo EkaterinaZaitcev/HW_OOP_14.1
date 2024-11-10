@@ -1,5 +1,6 @@
 import pytest
 
+
 def test_smartphone_init(smartphone1):
     assert smartphone1.name == "Samsung Galaxy S23 Ultra"
     assert smartphone1.description == "256GB, Серый цвет, 200MP камера"
@@ -17,5 +18,5 @@ def test_smartphone_add(smartphone1, smartphone2):
 
 def test_smartphone_add_error(smartphone1, grass1):
     with pytest.raises(TypeError):
-        res1 = smartphone1 + grass1
-        res2 = smartphone1 + 1
+        result_1 = smartphone1 + grass1
+        result_2 = smartphone1 + 1

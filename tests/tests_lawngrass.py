@@ -17,5 +17,5 @@ def test_lawn_grass_add(grass1, grass2):
 
 def test_lawn_grass_add_error(grass1, smartphone1):
     with pytest.raises(TypeError):
-        res1 = grass1 + smartphone1
-        res2 = grass1 + 1
+        result_1 = grass1 + smartphone1
+        result_2 = grass1 + 1
