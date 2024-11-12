@@ -1,7 +1,10 @@
 from typing import Dict
+from src.mixin import PrintMixin
+
+from src.base_product import BaseProduct
 
 
-class Product:
+class Product(BaseProduct, PrintMixin):
     """Класс для добавления продукта"""
     name: str
     description: str
