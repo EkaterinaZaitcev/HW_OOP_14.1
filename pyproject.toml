@@ -4,10 +4,11 @@ version = "0.1.0"
 description = ""
 authors = ["Ekaterina <katyat1@mail.ru>"]
 readme = "README.md"
-packages = [{include = "hw_oop_14"}]
+
 
 [tool.poetry.dependencies]
 python = "^3.12"
+self = "^2020.12.3"
 
 
 [tool.poetry.group.link.dependencies]
