@@ -5,7 +5,7 @@ def test_category(category1, category2):
     assert category1.name == "Смартфоны"
     assert category1.description == "Смартфоны, как средство."
     assert (
-    category1.get_product_list == "product1, 100.0 руб. Остаток: 2 шт.\nproduct2, 90.0 руб. Остаток: 17 шт.\n"
+        category1.get_product_list == "product1, 100.0 руб. Остаток: 2 шт.\nproduct2, 90.0 руб. Остаток: 17 шт.\n"
     )
     assert category1.category_count == 2
     assert category2.category_count == 2

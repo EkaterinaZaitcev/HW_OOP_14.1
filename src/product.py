@@ -17,6 +17,8 @@ class Product(BaseProduct, PrintMixin):
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__()
+
 
     def __str__(self):
         """Магический метод который возвращает строку"""
