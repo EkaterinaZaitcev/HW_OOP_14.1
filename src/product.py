@@ -1,6 +1,10 @@
+from typing import Dict
+from src.mixin import PrintMixin
+
+from src.base_product import BaseProduct
 
 
-class Product:
+class Product(BaseProduct, PrintMixin):
     """Класс для добавления продукта"""
     name: str
     description: str
@@ -11,23 +15,42 @@ class Product:
         """Метод для инициализации продукта"""
         self.name = name
         self.description = description
-        self.price = price
+        self.__price = price
         self.quantity = quantity
+        super().__init__()
 
 
-    def add_product(self):
+    def __str__(self):
+        """Магический метод который возвращает строку"""
+        return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
+
+    def __add__(self, other):
+        """Метод сложения"""
+        if isinstance(other, self.__class__):
+            return self.__price * self.quantity + other.__price * other.quantity
+        raise TypeError
+
+    @classmethod
+    def new_product(cls, new_product: Dict):
         """Добавление продукта"""
-        return (
-            f"Product(name={self.name}," 
-            f"description={self.description}," 
-            f"price={self.price}," 
-            f"quantity={self.quantity}"
-        )
+        name = new_product["name"]
+        description = new_product["description"]
+        price = new_product["price"]
+        quantity = new_product["quantity"]
+        return cls(name, description, price, quantity)
 
-if __name__ == "__main__":
-    product_1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
-    product_2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
-    product_3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
-    print(product_1)
-    print(f"{product_2}\n")
-    print(f"{product_3}\n")
+    @property
+    def price(self):
+        return self.__price
+
+    @price.setter
+    def price(self, new_price: float):
+        if new_price <= 0:
+            print("Цена не должна быть нулевая или отрицательная")
+            return
+        if self.__price > new_price:
+            user_input = input("Изменять цену? Введите y если да,и n если нет")
+            if user_input != "y":
+                return
+            else:
+                self.__price = self.__price
