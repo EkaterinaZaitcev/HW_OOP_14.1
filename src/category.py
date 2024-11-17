@@ -49,3 +49,12 @@ class Category:
         for product in self.__products:
             product_list += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
         return f"{product_list}"
+
+    def middle_price(self):
+        """Подсчитывает средний ценник всех товаров"""
+        try:
+            avg_price = sum([product.price for product in self.__products]) / len(self.__products)
+        except ZeroDivisionError:
+            avg_price = 0
+
+        return avg_price

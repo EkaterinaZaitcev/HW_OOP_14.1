@@ -1,5 +1,7 @@
 import pytest
 
+from src.category import Category
+
 
 def test_category(category1, category2):
     assert category1.name == "Смартфоны"
@@ -38,3 +40,16 @@ def test_category_iterator(category_iterator):
 
     with pytest.raises(StopIteration):
         next(category_iterator)
+
+def test_category_middle_price(category1, category2):
+    assert category1.middle_price() == 95.0
+    assert category2.middle_price() == 510.0
+
+
+def test_category_middle_price_empty():
+    cat = Category(
+        name="Телевизоры",
+        description="Современный телевизор, станет вашим другом и помощником",
+        products=[],
+    )
+    assert cat.middle_price() == 0
